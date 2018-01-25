@@ -77,34 +77,59 @@ if __name__ == "__main__":
     z = sorted(singles, key=lambda key: singles[key])
     x = sorted(doubles, key=lambda key: doubles[key])
     y = sorted(triples, key=lambda key: triples[key])
+    # fix it so its big to small
+    z = reversed(z)
+    x = reversed(x)
+    y = reversed(y)
+    
+    # Do top Ten if there is an argment
+    if len(sys.argv) > 2:
+        if sys.argv[2] == '-ten':
+            # iterate through top ten, show them!
+            ten = 0
+            # SHOWS SINGLES!
+            print "Single Freq:"
+            for let in z:
+                if ten == 10:
+                    break
+                print let + ": " + str(singles[let])
+                ten += 1
 
-    # iterate through top ten, show them!
-    ten = 0
-    # SHOWS SINGLES!
-    print "Single Freq:"
-    for let in reversed(z):
-        if ten == 10:
-            break
-        print let + ": " + str(singles[let])
-        ten += 1
+            ten = 0
+            # iterate through top ten, show them!
+            # SHOWS Doubles!
+            print "\nPair Freq:"
+            for let in x:
+                if ten == 10:
+                    break
+                print let + ": " + str(doubles[let])
+                ten += 1
 
-    ten = 0
-    # iterate through top ten, show them!
-    # SHOWS Doubles!
-    print "\nPair Freq:"
-    for let in reversed(x):
-        if ten == 10:
-            break
-        print let + ": " + str(doubles[let])
-        ten += 1
+            ten = 0
+            # iterate through top ten, show them!
+            # SHOWS Triples!
+            print "\nTriplets Freq:"
+            for let in y:
+                if ten == 10:
+                    break
+                print let + ": " + str(triples[let])
+                ten += 1
+    else:
+        singOut = ""
+        doubOut = ""
+        tripOut = ""
+        
+        # Create strings for pinting
+        for let in z:
+            singOut += "{" + let + ": " + str(singles[let]) + "},"
+        singOut = singOut[:-1] 
+        for let in x:
+            doubOut += "{" + let + ": " + str(doubles[let]) + "},"
+        doubOut = doubOut[:-1]
+        for let in y:
+            tripOut += "{" + let + ": " + str(triples[let]) + "},"
+        tripOut = tripOut[:-1]
 
-    ten = 0
-    # iterate through top ten, show them!
-    # SHOWS Triples!
-    print "\nTriplets Freq:"
-    for let in reversed(y):
-        if ten == 10:
-            break
-        print let + ": " + str(triples[let])
-        ten += 1
-
+        print "Singles: \n" +   singOut
+        print "\nDoubles: \n" + doubOut
+        print "\nTriples: \n" + tripOut
