@@ -28,7 +28,7 @@ if __name__ == "__main__":
                     # Add to list
                     allLetters.append(x)
                 # Makes lowercase uppercase now
-                else x.islower():
+                elif x.islower():
                     allLetters.append(x.upper())
 
     # Doubles and Triples!
