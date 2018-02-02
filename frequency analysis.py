@@ -8,6 +8,8 @@ if __name__ == "__main__":
     # list of all letters, caps, in order that they appear
     allLetters = []
 
+    # TODO accept standard in
+
     # SEE IF THERE ARE ARGS
     if len(sys.argv) <= 1:
         print 'No file selected!'
@@ -28,6 +30,7 @@ if __name__ == "__main__":
     except:
         print "Error in opening the File"
         sys.exit(0)
+    # TODO: change lowercase to upper?
 
     # Doubles and Triples!
     singles = {}
