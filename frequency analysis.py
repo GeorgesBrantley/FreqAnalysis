@@ -9,28 +9,27 @@ if __name__ == "__main__":
     allLetters = []
 
     # TODO accept standard in
+    data = sys.stdin.readlines()
+    print data
 
     # SEE IF THERE ARE ARGS
-    if len(sys.argv) <= 1:
-        print 'No file selected!'
-        print 'Run \'./frequency analysis.py   filename\''
-        sys.exit(0)
+    #if len(sys.argv) <= 1:
+    #    print 'No file selected!'
+    #    print 'Run \'./frequency analysis.py   filename\''
+    #    sys.exit(0)
     
-    # open file, read it
-    try:
-        with open(sys.argv[1],'r') as f:
-            # opens by line
-            for line in f:
-                # By letter
-                for x in line:
-                    #only if letter is uppercase
-                    if x.isupper():
-                        # Add to list
-                        allLetters.append(x)
-    except:
-        print "Error in opening the File"
-        sys.exit(0)
-    # TODO: change lowercase to upper?
+    # opens by line
+    for line in data:
+        for let in line:
+            # By letter
+            for x in line:
+                #only if letter is uppercase
+                if x.isupper():
+                    # Add to list
+                    allLetters.append(x)
+                # Makes lowercase uppercase now
+                else x.islower():
+                    allLetters.append(x.upper())
 
     # Doubles and Triples!
     singles = {}
