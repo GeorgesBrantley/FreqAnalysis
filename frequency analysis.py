@@ -8,11 +8,10 @@ if __name__ == "__main__":
     # list of all letters, caps, in order that they appear
     allLetters = []
 
-    # TODO accept standard in
+    # accept standard in
     data = sys.stdin.readlines()
-    print data
 
-    # SEE IF THERE ARE ARGS
+    # Past file method
     #if len(sys.argv) <= 1:
     #    print 'No file selected!'
     #    print 'Run \'./frequency analysis.py   filename\''
@@ -20,16 +19,15 @@ if __name__ == "__main__":
     
     # opens by line
     for line in data:
-        for let in line:
-            # By letter
-            for x in line:
-                #only if letter is uppercase
-                if x.isupper():
-                    # Add to list
-                    allLetters.append(x)
-                # Makes lowercase uppercase now
-                elif x.islower():
-                    allLetters.append(x.upper())
+        # By letter
+        for x in line:
+            #only if letter is uppercase
+            if x.isupper():
+                # Add to list
+                allLetters.append(x)
+            # Makes lowercase uppercase now
+            elif x.islower():
+                allLetters.append(x.upper())
 
     # Doubles and Triples!
     singles = {}
@@ -85,8 +83,8 @@ if __name__ == "__main__":
     y = reversed(y)
     
     # Do top Ten if there is an argment
-    if len(sys.argv) > 2:
-        if sys.argv[2] == '-ten':
+    if len(sys.argv) > 1:
+        if sys.argv[1] == '-ten':
             # iterate through top ten, show them!
             ten = 0
             # SHOWS SINGLES!
